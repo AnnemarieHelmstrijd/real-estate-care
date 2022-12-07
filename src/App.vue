@@ -1,43 +1,54 @@
 <template>
-  <HeaderComponent header="Real Estate Care" subheader="Caring is our nature"></HeaderComponent>
-  <LogoComponent></LogoComponent>
-  <FooterComponent></FooterComponent>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@200;400&family=Roboto&family=Roboto+Flex:opsz,wght@8..144,200;8..144,400&display=swap"
+    rel="stylesheet">
+  <v-app>
+    <v-layout>
+      <HeaderComponent></HeaderComponent>
+      <v-main>
+        <v-card height="100%">
+          <MenuGrid></MenuGrid>
+        </v-card>
+      </v-main>
+      <FooterComponent></FooterComponent>
+    </v-layout>
+  </v-app>
 </template>
 
 <script>
 import HeaderComponent from './components/Header.vue'
-import LogoComponent from './components/Logo.vue'
-import FooterComponent from './components/Footer.vue'
+import MenuGrid from './components/MenuGrid.vue';
+import FooterComponent from './components/Footer.vue';
 
 export default {
   name: 'App',
+  theme: 'myCustomLightTheme',
   components: {
     HeaderComponent,
-    LogoComponent,
+    MenuGrid,
     FooterComponent,
   }
 }
 </script>
 
 <style>
-
-body{
-margin: 0;
-
-}
 :root {
-  --primaryleft: rgba(71, 94, 108, 255 ) ;
-  --primaryright:  rgba(20, 27, 31, 255 );
-  --light: rgba(0, 170, 162, 255);
+  --primary: #1E292F;
+  --secondary: #00AAA2;
   --text: rgba(41, 52, 57, 255);
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--text);
+}
 
+#my_app_bar {
+  background-color: var(--primary);
 }
 </style>
