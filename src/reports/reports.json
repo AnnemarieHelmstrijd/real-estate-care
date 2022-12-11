@@ -1,0 +1,59 @@
+{
+    "reports": [
+        {
+            "damage":{
+                "location": "Plafond",
+                "newDamage": true,
+                "type": 2,
+                "date": "1999-08-09",
+                "actionRequired": false,
+                "description": "Scheur"
+            },
+
+            "maintenance": {
+                "location": "Achterwand",
+                "type": 3,
+                "actionRequired": true,
+                "costs": 3
+            }
+        },
+        {
+            "installation": {
+                "location": "Zolder",
+                "type": 1,
+                "malfunctions": "Doet het niet",
+                "test": "testprocedures.pdf",
+                "approved": true,
+                "notes": ""
+            }
+        },
+        {
+            "damage":{
+                "location": "Dak",
+                "newDamage": true,
+                "type": 1,
+                "date": "2006-08-09",
+                "actionRequired": true,
+                "description": "Gat"
+            }
+        },
+        {
+            "installation": {
+                "location": "Alarm etage 1",
+                "type": 4,
+                "malfunctions": "Foutmelding",
+                "test": "testprocedures.pdf",
+                "approved": false,
+                "notes": "blijft foutmelding geven"
+            },
+            "modifications": {
+                "currentModifications": "modifications.pdf",
+                "location": "balk kelder linker muur",
+                "executer": 2,
+                "description": "kapot",
+                "action": 1,
+                "notes": "hangt naar links"
+            }
+        }
+    ]
+}
