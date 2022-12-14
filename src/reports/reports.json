@@ -1,7 +1,8 @@
 {
     "reports": [
         {
-            "damage":{
+            "location": "hema",
+            "damage": {
                 "location": "Plafond",
                 "newDamage": true,
                 "type": 2,
@@ -9,7 +10,6 @@
                 "actionRequired": false,
                 "description": "Scheur"
             },
-
             "maintenance": {
                 "location": "Achterwand",
                 "type": 3,
@@ -18,6 +18,7 @@
             }
         },
         {
+            "location": "ONC",
             "installation": {
                 "location": "Zolder",
                 "type": 1,
@@ -28,7 +29,8 @@
             }
         },
         {
-            "damage":{
+            "location": "fit for free",
+            "damage": {
                 "location": "Dak",
                 "newDamage": true,
                 "type": 1,
@@ -38,6 +40,7 @@
             }
         },
         {
+            "location": "jumbo",
             "installation": {
                 "location": "Alarm etage 1",
                 "type": 4,

@@ -2,7 +2,7 @@
     <v-container class="menu-container">
         <v-row class="card_row">
             <v-col>
-                <MenuCard icon="mdi-bookmark" action="Planned"></MenuCard>
+                <MenuCard icon="mdi-bookmark" action="Scheduled" link="Scheduled"></MenuCard>
             </v-col>
             <v-col>
                 <MenuCard icon="mdi-checkbox-marked-circle" action="Completed"></MenuCard>
@@ -30,7 +30,7 @@ export default {
     name: "MenuGrid",
     components: {
         MenuCard,
-    }
+    },
 }
 </script>
 

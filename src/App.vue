@@ -4,31 +4,39 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@200;400&family=Roboto&family=Roboto+Flex:opsz,wght@8..144,200;8..144,400&display=swap"
     rel="stylesheet">
-  <v-app>
-    <v-layout>
-      <HeaderComponent></HeaderComponent>
-      <v-main>
-        <v-card height="100%">
-          <MenuGrid></MenuGrid>
-        </v-card>
-      </v-main>
-      <FooterComponent></FooterComponent>
-    </v-layout>
-  </v-app>
+  <component :is="currentView"></component>
 </template>
 
 <script>
-import HeaderComponent from './components/Header.vue'
-import MenuGrid from './components/MenuGrid.vue';
-import FooterComponent from './components/Footer.vue';
+import Scheduled from './components/Scheduled.vue';
+import WelcomeScreen from './components/WelcomeScreen.vue';
+
+const routes = {
+  '/': WelcomeScreen,
+  '/Scheduled': Scheduled
+}
 
 export default {
   name: 'App',
   theme: 'myCustomLightTheme',
-  components: {
-    HeaderComponent,
-    MenuGrid,
-    FooterComponent,
+
+  data() {
+    return {
+      currentPath: window.location.hash,
+    }
+  },
+
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/']
+    }
+  },
+
+  mounted: function () {
+    let foo = this;
+    window.addEventListener('hashchange', function () {
+      foo.currentPath = window.location.hash
+    })
   }
 }
 </script>
