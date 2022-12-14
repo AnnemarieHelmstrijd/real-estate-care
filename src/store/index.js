@@ -5,9 +5,17 @@ export default createStore({
     reports: [],
   },
 
-  mutations: {},
+  actions: {
+    setReports(context, reports) {
+      context.commit("SET_REPORTS", reports);
+    },
+  },
 
-  actions: {},
+  mutations: {
+    SET_REPORTS(state, reports) {
+      state.reports = reports;
+    },
+  },
 
   modules: {},
 });

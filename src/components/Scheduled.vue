@@ -50,6 +50,7 @@ export default {
                 console.log(data);
                 self.scheduledWork = data;
                 self.loaded = true;
+                this.$store.dispatch("setReports", data);
             });
     }
 }
