@@ -4,7 +4,7 @@
         <v-layout>
             <HeaderComponent></HeaderComponent>
             <v-main>
-                <ReportsList items={{scheduledWork}}></ReportsList>
+                <ReportsList></ReportsList>
             </v-main>
             <FooterComponent></FooterComponent>
         </v-layout>
@@ -47,6 +47,7 @@ export default {
         fetch('https://my-json-server.typicode.com/AnnemarieHelmstrijd/real-estate-care/reports')
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 self.scheduledWork = data;
                 self.loaded = true;
             });
