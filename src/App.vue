@@ -8,12 +8,14 @@
 </template>
 
 <script>
+import CurrentReport from './components/CurrentReport.vue';
 import Scheduled from './components/Scheduled.vue';
 import WelcomeScreen from './components/WelcomeScreen.vue';
 
 const routes = {
   '/': WelcomeScreen,
-  '/Scheduled': Scheduled
+  '/Scheduled': Scheduled,
+  '/Report': CurrentReport
 }
 
 export default {

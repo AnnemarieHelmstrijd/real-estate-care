@@ -47,7 +47,6 @@ export default {
         fetch('https://my-json-server.typicode.com/AnnemarieHelmstrijd/real-estate-care/reports')
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 self.scheduledWork = data;
                 self.loaded = true;
                 this.$store.dispatch("setReports", data);
