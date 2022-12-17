@@ -1,17 +1,17 @@
 {
     "reports": [
         {
-            "location": "hema",
+            "location": "Hema",
             "date": "1999-08-09",
             "damage": {
-                "location": "Plafond",
+                "location": "Ceiling",
                 "newDamage": true,
                 "type": 2,
                 "actionRequired": false,
-                "description": "Scheur"
+                "description": "Tear"
             },
             "maintenance": {
-                "location": "Achterwand",
+                "location": "Back wall",
                 "type": 3,
                 "actionRequired": true,
                 "costs": 3
@@ -21,9 +21,9 @@
             "location": "ONC",
             "date": "2022-03-09",
             "installation": {
-                "location": "Zolder",
+                "location": "Attic",
                 "type": 1,
-                "malfunctions": "Doet het niet",
+                "malfunctions": "Not working",
                 "test": "testprocedures.pdf",
                 "approved": true,
                 "notes": ""
@@ -33,32 +33,32 @@
             "location": "fit for free",
             "date": "2019-05-05",
             "damage": {
-                "location": "Dak",
+                "location": "Roof",
                 "newDamage": true,
                 "type": 1,
                 "date": "2006-08-09",
                 "actionRequired": true,
-                "description": "Gat"
+                "description": "Hole"
             }
         },
         {
             "location": "jumbo",
             "date": "2007-01-02",
             "installation": {
-                "location": "Alarm etage 1",
+                "location": "Alarm floor 1",
                 "type": 4,
-                "malfunctions": "Foutmelding",
+                "malfunctions": "Error in display",
                 "test": "testprocedures.pdf",
                 "approved": false,
-                "notes": "blijft foutmelding geven"
+                "notes": "Error persists"
             },
             "modifications": {
                 "currentModifications": "modifications.pdf",
-                "location": "balk kelder linker muur",
+                "location": "Left wall basement construction",
                 "executer": 2,
-                "description": "kapot",
+                "description": "Broken",
                 "action": 1,
-                "notes": "hangt naar links"
+                "notes": "Leans towards the left"
             }
         }
     ]
