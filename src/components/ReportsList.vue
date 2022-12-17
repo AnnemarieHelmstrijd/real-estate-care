@@ -1,34 +1,29 @@
 <template>
-    <!-- <HeaderComponent></HeaderComponent> -->
-    <v-list :style="{
-        'align-items': 'center'
-    }">
-        <v-list-item v-for="item in items" :key="item.location" :title="item.location" :subtitle="item.date"
-            @click="goToReport(item.location)" href="#/Report"
-            prepend-avatar="https://randomuser.me/api/portraits/men/22.jpg">
-
-        </v-list-item>
-    </v-list>
+    <div>
+        <v-expansion-panels>
+            <v-expansion-panel v-for="item in items" :key="item.location" :title="item.location">
+                <v-expansion-panel-text>
+                    <ReportComponent :report="item"></ReportComponent>
+                </v-expansion-panel-text>
+            </v-expansion-panel>
+        </v-expansion-panels>
+    </div>
     <FooterComponent></FooterComponent>
 </template>
 
 <script>
 
 import FooterComponent from './Footer.vue';
-
+import ReportComponent from './Report.vue'
 export default {
     name: "ReportsList",
     components: {
         FooterComponent,
+        ReportComponent
     },
     computed: {
         items() {
             return this.$store.state.reports
-        },
-    },
-    methods: {
-        goToReport(location) {
-            this.$store.dispatch("loadReport", location)
         },
     }
 }
