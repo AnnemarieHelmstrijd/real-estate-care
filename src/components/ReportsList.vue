@@ -14,13 +14,11 @@
 
 <script>
 
-// import HeaderComponent from './Header.vue';
 import FooterComponent from './Footer.vue';
 
 export default {
     name: "ReportsList",
     components: {
-        // HeaderComponent,
         FooterComponent,
     },
     computed: {
