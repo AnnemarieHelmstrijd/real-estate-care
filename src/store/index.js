@@ -17,10 +17,8 @@ export default createStore({
 
   mutations: {
     SET_REPORTS(state, reports) {
-      console.log(reports);
       state.reports = reports.sort((a, b) => {
-        console.log(b.date);
-        return Date(b.date) - Date(a.date);
+        return new Date(a.date) - new Date(b.date);
       });
     },
     SET_CURRENT_REPORT(state, location) {
