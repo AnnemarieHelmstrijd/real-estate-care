@@ -1,4 +1,5 @@
 <template>
+    Date: {{ report.date }}
     <v-list v-if="hasDamageReport">
         <v-list-subheader>
             <h3>Damage</h3>
