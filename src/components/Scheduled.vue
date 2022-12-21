@@ -1,5 +1,4 @@
 <template>
-    <!-- <h1 v-else>{{ scheduledWork }}</h1> -->
     <v-app v-if="loaded">
         <v-layout>
             <HeaderComponent></HeaderComponent>
@@ -15,7 +14,7 @@
             <HeaderComponent></HeaderComponent>
             <v-main>
                 <v-card height="100%">
-                    <h1>Loading...</h1>
+                    <h1>{{ loadingStatus }}</h1>
                 </v-card>
             </v-main>
             <FooterComponent></FooterComponent>
@@ -36,21 +35,21 @@ export default {
         FooterComponent,
         ReportsList,
     },
+    computed: {
+        loaded() {
+            return this.$store.state.loaded;
+        },
+        loadingStatus() {
+            return this.$store.state.loadingStatus;
+        },
+    },
     data() {
         return {
             scheduledWork: [],
-            loaded: false,
         }
     },
     mounted: function () {
-        let self = this;
-        fetch('https://my-json-server.typicode.com/AnnemarieHelmstrijd/real-estate-care/reports')
-            .then((response) => response.json())
-            .then((data) => {
-                self.scheduledWork = data;
-                self.loaded = true;
-                this.$store.dispatch("setReports", data);
-            });
+        this.$store.dispatch("fetchReports");
     }
 }
 </script>

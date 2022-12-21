@@ -1,5 +1,5 @@
 {
-    "reports": [
+    "completedReports": [
         {
             "location": "Hema",
             "date": "1999-08-09",
@@ -61,5 +61,6 @@
                 "notes": "Leans towards the left"
             }
         }
-    ]
+    ],
+    "scheduledReports": []
 }

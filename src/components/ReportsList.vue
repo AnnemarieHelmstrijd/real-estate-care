@@ -23,7 +23,7 @@ export default {
     },
     computed: {
         items() {
-            return this.$store.state.reports
+            return this.$store.state.model.completedReports
         },
     }
 }
