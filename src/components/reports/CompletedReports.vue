@@ -14,7 +14,13 @@
             <HeaderComponent></HeaderComponent>
             <v-main>
                 <v-card height="100%">
-                    <h1>{{ loadingStatus }}</h1>
+                    <v-progress-circular
+                        color="blue-lighten-3"
+                        indeterminate
+                        :size="62"
+                        :width="12"
+                    >
+                    </v-progress-circular>
                 </v-card>
             </v-main>
             <FooterComponent></FooterComponent>
@@ -24,12 +30,12 @@
 </template>
 
 <script>
-import HeaderComponent from './Header.vue'
-import FooterComponent from './Footer.vue';
+import HeaderComponent from '../Header.vue'
+import FooterComponent from '../Footer.vue';
 import ReportsList from './ReportsList.vue';
 
 export default {
-    name: 'ScheduledScreen',
+    name: 'CompletedReportsComponent',
     components: {
         HeaderComponent,
         FooterComponent,

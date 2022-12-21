@@ -10,7 +10,6 @@ export default createStore({
     loadingStatus: "Loading...",
     loadingErrors: [],
     loaded: false,
-    reports: [],
     model: new DataModel(),
   },
 
@@ -24,7 +23,6 @@ export default createStore({
       axios
         .get(url)
         .then((result) => {
-          console.log(result.data);
           context.commit("SET_LOADING_STATUS", "Done loading");
           context.commit("SET_LOADED", true);
           context.commit("SET_REPORTS", result.data);

@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import ReportComponent from './components/Report.vue';
-import Scheduled from './components/Scheduled.vue';
+import ReportComponent from './components/reports/Report.vue';
+import CompletedReportsComponent from './components/reports/CompletedReports.vue';
 import WelcomeScreen from './components/WelcomeScreen.vue';
 
 const routes = {
   '/': WelcomeScreen,
-  '/Scheduled': Scheduled,
+  '/Completed': CompletedReportsComponent,
   '/Report': ReportComponent
 }
 

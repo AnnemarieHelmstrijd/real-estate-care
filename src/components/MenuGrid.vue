@@ -5,7 +5,7 @@
                 <MenuCard icon="mdi-bookmark" action="Scheduled" link="Scheduled"></MenuCard>
             </v-col>
             <v-col>
-                <MenuCard icon="mdi-checkbox-marked-circle" action="Completed"></MenuCard>
+                <MenuCard icon="mdi-checkbox-marked-circle" action="Completed" link="Completed"></MenuCard>
             </v-col>
         </v-row>
 

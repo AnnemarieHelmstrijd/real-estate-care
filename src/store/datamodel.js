@@ -4,7 +4,7 @@ class DamageReport {
   }
 
   get actionRequired() {
-    return this.json["actionRequired"];
+    return this.json["actionRequired"] ? "Yes" : "No";
   }
 
   get location() {
@@ -81,6 +81,10 @@ class MaintenanceReport {
         return "";
     }
   }
+
+  get actionRequired(){
+    return this.json["actionRequired"] ? "Yes" : "No";
+  }
 }
 
 class ModificationReport {}
@@ -89,6 +93,8 @@ class InstallationReport {}
 
 class Report {
   constructor(json) {
+    this.location = json["location"];
+    this.date = json["date"];
     if (json["damage"]) this.damageReport = new DamageReport(json["damage"]);
     else this.damageReport = null;
 
@@ -105,8 +111,20 @@ class Report {
     else this.installationReport = null;
   }
 
-  hasDamageReport() {
-    return this.damageReport != null;
+  getDate(){
+    return this.date;
+  }
+
+  getLocation(){
+    return this.location
+  }
+
+  getDamageReport(){
+    return this.damageReport;
+  }
+
+  getMaintenanceReport(){
+    return this.maintenanceReport;
   }
 }
 
@@ -117,9 +135,15 @@ function buildReports(reportJson) {
 export default class DataModel {
   constructor(database = null) {
     if (database) {
-      this.completedReports = database["completedReports"].map(buildReports);
-      this.scheduledReports = database["scheduledReport"].map(buildReports);
+      this.completedReports = database["completedReports"].map(buildReports).sort((a, b) => {
+        return new Date(a.getDate()) - new Date(b.getDate());
+      });
+      this.scheduledReports = database["scheduledReports"].map(buildReports);
     }
+  }
+
+  getCompletedReports(){
+    return this.completedReports;
   }
 
   // set completedReports(completedReports) {
