@@ -11,7 +11,7 @@ export default createStore({
     loadingErrors: [],
     loaded: false,
     reports: [],
-    model: DataModel,
+    model: new DataModel(),
   },
 
   actions: {
@@ -24,6 +24,7 @@ export default createStore({
       axios
         .get(url)
         .then((result) => {
+          console.log(result.data);
           context.commit("SET_LOADING_STATUS", "Done loading");
           context.commit("SET_LOADED", true);
           context.commit("SET_REPORTS", result.data);
@@ -33,6 +34,7 @@ export default createStore({
             "SET_LOADING_STATUS",
             "An error occured during loading"
           );
+          console.log(error);
           context.commit("SET_LOADING_ERRORS", error);
         });
     },
