@@ -82,16 +82,98 @@ class MaintenanceReport {
     }
   }
 
-  get actionRequired(){
+  get actionRequired() {
     return this.json["actionRequired"] ? "Yes" : "No";
   }
 }
 
-class ModificationReport {}
+class ModificationReport {
+  constructor(json) {
+    this.json = json;
+  }
 
-class InstallationReport {}
+  get actionRequired() {
+    return this.json["actionRequired"] ? "Yes" : "No";
+  }
 
-class Report {
+  get location() {
+    return this.json["location"];
+  }
+
+  get type() {
+    switch (this.json["type"]) {
+      case 0:
+        return "Moedwillig";
+      case 1:
+        return "Slijtage";
+      case 2:
+        return "Geweld";
+      case 3:
+        return "Normaal gebruik";
+      case 4:
+        return "Calamiteit";
+      case 5:
+        return "Anders";
+      default:
+        return "";
+    }
+  }
+
+  get description() {
+    return this.json["description"];
+  }
+
+  get newDamage() {
+    return this.json["newDamage"] ? "Yes" : "No";
+  }
+}
+
+class InstallationReport {
+  constructor(json) {
+    this.json = json;
+  }
+
+  get location() {
+    return this.json["location"];
+  }
+
+  get type() {
+    switch (this.json["type"]) {
+      case 0:
+        return "Koeling";
+      case 1:
+        return "Verwarming";
+      case 2:
+        return "Luchtverversing";
+      case 3:
+        return "Elektra";
+      case 4:
+        return "Beveiliging";
+
+      default:
+        return "";
+
+    }
+  }
+
+  get approved(){
+    return this.json["approved"] ? "Yes" : "No";
+  }
+
+  get malfunctions() {
+    return this.json["malfunctions"];
+  }
+
+  get test(){
+    return this.json["test"];
+  }
+
+  get notes(){
+    return this.json["notes"];
+  }
+}
+
+class CompletedReport {
   constructor(json) {
     this.location = json["location"];
     this.date = json["date"];
@@ -111,25 +193,29 @@ class Report {
     else this.installationReport = null;
   }
 
-  getDate(){
+  getDate() {
     return this.date;
   }
 
-  getLocation(){
+  getLocation() {
     return this.location
   }
 
-  getDamageReport(){
+  getDamageReport() {
     return this.damageReport;
   }
 
-  getMaintenanceReport(){
+  getMaintenanceReport() {
     return this.maintenanceReport;
+  }
+
+  getInstallationReport(){
+    return this.installationReport;
   }
 }
 
 function buildReports(reportJson) {
-  return new Report(reportJson);
+  return new CompletedReport(reportJson);
 }
 
 export default class DataModel {
@@ -142,7 +228,7 @@ export default class DataModel {
     }
   }
 
-  getCompletedReports(){
+  getCompletedReports() {
     return this.completedReports;
   }
 

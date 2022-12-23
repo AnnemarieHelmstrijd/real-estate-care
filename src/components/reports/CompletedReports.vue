@@ -3,7 +3,7 @@
         <v-layout>
             <HeaderComponent></HeaderComponent>
             <v-main>
-                <ReportsList></ReportsList>
+                <CompletedReportsList></CompletedReportsList>
             </v-main>
             <FooterComponent></FooterComponent>
         </v-layout>
@@ -32,14 +32,14 @@
 <script>
 import HeaderComponent from '../Header.vue'
 import FooterComponent from '../Footer.vue';
-import ReportsList from './ReportsList.vue';
+import CompletedReportsList from './CompletedReportsList.vue';
 
 export default {
     name: 'CompletedReportsComponent',
     components: {
         HeaderComponent,
         FooterComponent,
-        ReportsList,
+        CompletedReportsList,
     },
     computed: {
         loaded() {

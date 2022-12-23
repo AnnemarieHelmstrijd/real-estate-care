@@ -1,23 +1,5 @@
 <template>
-    <!-- <v-list-subheader>
-            <h3>Damage</h3>
-        </v-list-subheader>
-        <v-list-item title="Location: " :subtitle="report.location">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Description: " :subtitle="report.description">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Action required: " :subtitle="report.actionRequired">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Type: " :subtitle="report.type">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="New damage: " :subtitle="report.newDamage">
-        </v-list-item>
-        <v-divider></v-divider> -->
-
+    <h3>Damage</h3>
     <v-table height="300px" density="compact">
         <thead>
             <tr>

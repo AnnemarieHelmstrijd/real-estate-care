@@ -6,27 +6,10 @@
     <v-list v-if="hasMaintenanceReport">
         <MaintenanceReportComponent :report="maintenanceReport"></MaintenanceReportComponent>
     </v-list>
-    <!-- <v-list v-if="hasInstallationReport">
-        <v-list-subheader>
-            <h3>Installation</h3>
-        </v-list-subheader>
-        <v-list-item title="Location: " :subtitle="installationReport.location">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Type: " :subtitle="installationTypeString">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Malfunctions: " :subtitle="installationReport.malfunctions">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Test: " :subtitle="installationReport.test">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Approved: " :subtitle="installationApprovedString">
-        </v-list-item>
-        <v-divider></v-divider>
+    <v-list v-if="hasInstallationReport">
+        <InstallationReportComponent :report="installationReport"></InstallationReportComponent>
     </v-list>
-    <v-list v-if="hasModificationsReport">
+    <!-- <v-list v-if="hasModificationsReport">
         <v-list-subheader>
             <h3>Modifications</h3>
         </v-list-subheader>
@@ -52,17 +35,19 @@
 </template>
 
 <script>
-import Report from '../../store/datamodel'
+import CompletedReport from '../../store/datamodel'
 import DamageReportComponent from './DamageReport.vue';
+import InstallationReportComponent from './InstallationReport.vue';
 import MaintenanceReportComponent from './MaintenanceReport.vue';
 export default {
-    name: "ReportComponent",
+    name: "CompletedReportComponent",
     components: {
     DamageReportComponent,
     MaintenanceReportComponent,
+    InstallationReportComponent
 },
     props: {
-        report: Report,
+        report: CompletedReport,
     },
     computed: {
         hasDamageReport() {
@@ -82,34 +67,11 @@ export default {
         },
 
         hasInstallationReport() {
-            return this.report.installation;
+            return this.report.getInstallationReport();
         }, 
 
         installationReport() {
-            return this.report.installation;
-        },
-
-        installationTypeString() {
-            switch (this.report.installation.type) {
-                case 0:
-                    return "Koeling";
-                case 1:
-                    return "Verwarming";
-                case 2:
-                    return "Luchtverversing";
-                case 3:
-                    return "Elektra";
-                case 4:
-                    return "Beveiliging";
-
-                default:
-                    return "";
-
-            }
-        },
-
-        installationApprovedString() {
-            return this.report.installation.approved ? "Yes" : "No";
+            return this.report.getInstallationReport();
         },
 
         hasModificationsReport() {
