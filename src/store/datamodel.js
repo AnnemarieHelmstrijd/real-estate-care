@@ -87,33 +87,28 @@ class MaintenanceReport {
   }
 }
 
-class ModificationReport {
+class ModificationsReport {
   constructor(json) {
     this.json = json;
   }
 
-  get actionRequired() {
-    return this.json["actionRequired"] ? "Yes" : "No";
+  get notes() {
+    return this.json["notes"];
   }
 
   get location() {
     return this.json["location"];
   }
 
-  get type() {
-    switch (this.json["type"]) {
+  get executor() {
+    switch (this.json["executer"]) {
       case 0:
-        return "Moedwillig";
+        return "Huurder";
       case 1:
-        return "Slijtage";
+        return "Aannemer";
       case 2:
-        return "Geweld";
-      case 3:
-        return "Normaal gebruik";
-      case 4:
-        return "Calamiteit";
-      case 5:
-        return "Anders";
+        return "Onbekend";
+
       default:
         return "";
     }
@@ -123,8 +118,21 @@ class ModificationReport {
     return this.json["description"];
   }
 
-  get newDamage() {
-    return this.json["newDamage"] ? "Yes" : "No";
+  get action() {
+    switch (this.json["action"]) {
+      case 0:
+        return "Accepteren";
+      case 1:
+        return "Laten keuren";
+      case 2:
+        return "Laten verwijderen";
+      case 3:
+        return "Laten aanpassen";
+      case 4:
+        return "Keuren";
+      default:
+        return "";
+    }
   }
 }
 
@@ -156,7 +164,7 @@ class InstallationReport {
     }
   }
 
-  get approved(){
+  get approved() {
     return this.json["approved"] ? "Yes" : "No";
   }
 
@@ -164,11 +172,11 @@ class InstallationReport {
     return this.json["malfunctions"];
   }
 
-  get test(){
+  get test() {
     return this.json["test"];
   }
 
-  get notes(){
+  get notes() {
     return this.json["notes"];
   }
 }
@@ -184,9 +192,9 @@ class CompletedReport {
       this.maintenanceReport = new MaintenanceReport(json["maintenance"]);
     else this.maintenanceReport = null;
 
-    if (json["modification"])
-      this.modificationReport = new ModificationReport(json["modification"]);
-    else this.modificationReport = null;
+    if (json["modifications"])
+      this.modificationsReport = new ModificationsReport(json["modifications"]);
+    else this.modificationsReport = null;
 
     if (json["installation"])
       this.installationReport = new InstallationReport(json["installation"]);
@@ -209,8 +217,12 @@ class CompletedReport {
     return this.maintenanceReport;
   }
 
-  getInstallationReport(){
+  getInstallationReport() {
     return this.installationReport;
+  }
+
+  getModificationsReport(){
+    return this.modificationsReport;
   }
 }
 

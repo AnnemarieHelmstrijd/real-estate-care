@@ -1,5 +1,5 @@
 <template>
-    <h3>Maintenance</h3>
+    <h5>Maintenance</h5>
     <v-table height="300px" density="compact">
         <thead>
             <tr>

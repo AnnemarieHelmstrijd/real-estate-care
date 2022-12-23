@@ -1,5 +1,5 @@
 <template>
-    <h5>Installation</h5>
+    <h5>Modifications</h5>
     <v-table height="300px" density="compact">
         <thead>
             <tr>
@@ -17,23 +17,16 @@
                 <td class="text-left">{{ report.location }}</td>
             </tr>
             <tr>
-                <td class="text-left">Type: </td>
-                <td class="text-left">{{ report.type }}</td>
+                <td class="text-left">Description: </td>
+                <td class="text-left">{{ report.description }}</td>
             </tr>
             <tr>
-                <td class="text-left">Malfunction: </td>
-                <td class="text-left">{{ report.malfunctions }}</td>
+                <td class="text-left">Action: </td>
+                <td class="text-left">{{ report.action }}</td>
             </tr>
             <tr>
-                <td class="text-left">Test report: </td>
-                <td class="text-left">
-                <v-btn icon href='https://www.youtube.com/watch?v=xm3YgoEiEDc'>
-                    <v-icon id="bottom_icon" size="15">mdi-book-open</v-icon>
-                </v-btn></td>
-            </tr>
-            <tr>
-                <td class="text-left">Approved: </td>
-                <td class="text-left">{{ report.approved }}</td>
+                <td class="text-left">Modifier: </td>
+                <td class="text-left">{{ report.executor }}</td>
             </tr>
             <tr>
                 <td class="text-left">Notes: </td>
@@ -44,11 +37,11 @@
 </template>
 
 <script>
-import InstallationReport from '../../store/datamodel'
+import ModificationsReport from '../../store/datamodel'
 export default {
-    name: "InstallationReportComponent",
+    name: "ModificationsReportComponent",
     props: {
-        report: InstallationReport,
+        report: ModificationsReport,
     }
 }
 </script>

@@ -1,37 +1,17 @@
 <template>
-    <v-list v-if="hasDamageReport">
+    <v-list v-if="damageReport">
         <DamageReportComponent :report="damageReport">
         </DamageReportComponent>
     </v-list>
-    <v-list v-if="hasMaintenanceReport">
+    <v-list v-if="maintenanceReport">
         <MaintenanceReportComponent :report="maintenanceReport"></MaintenanceReportComponent>
     </v-list>
-    <v-list v-if="hasInstallationReport">
+    <v-list v-if="installationReport">
         <InstallationReportComponent :report="installationReport"></InstallationReportComponent>
     </v-list>
-    <!-- <v-list v-if="hasModificationsReport">
-        <v-list-subheader>
-            <h3>Modifications</h3>
-        </v-list-subheader>
-        <v-list-item title="Current modifications: " :subtitle="modificationsReport.currentModifications">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Location: " :subtitle="modificationsReport.location">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Executer: " :subtitle="modificationsExecuterString">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Description: " :subtitle="modificationsReport.description">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Action: " :subtitle="modificationsActionString">
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item title="Notes: " :subtitle="modificationsReport.notes">
-        </v-list-item>
-        <v-divider></v-divider>
-    </v-list> -->
+    <v-list v-if="modificationsReport">
+        <ModificationsReportComponent :report="modificationsReport"></ModificationsReportComponent>
+    </v-list>
 </template>
 
 <script>
@@ -39,80 +19,34 @@ import CompletedReport from '../../store/datamodel'
 import DamageReportComponent from './DamageReport.vue';
 import InstallationReportComponent from './InstallationReport.vue';
 import MaintenanceReportComponent from './MaintenanceReport.vue';
+import ModificationsReportComponent from './ModificationsReport.vue';
 export default {
     name: "CompletedReportComponent",
     components: {
-    DamageReportComponent,
-    MaintenanceReportComponent,
-    InstallationReportComponent
-},
+        DamageReportComponent,
+        MaintenanceReportComponent,
+        InstallationReportComponent,
+        ModificationsReportComponent,
+    },
     props: {
         report: CompletedReport,
     },
     computed: {
-        hasDamageReport() {
-            return this.report.getDamageReport();
-        },
-
         damageReport() {
             return this.report.getDamageReport();
-        },
-
-        hasMaintenanceReport() {
-            return this.report.getMaintenanceReport();
         },
 
         maintenanceReport() {
             return this.report.getMaintenanceReport();
         },
 
-        hasInstallationReport() {
-            return this.report.getInstallationReport();
-        }, 
-
         installationReport() {
             return this.report.getInstallationReport();
         },
 
-        hasModificationsReport() {
-            return this.report.modifications;
-        },
-
         modificationsReport() {
-            return this.report.modifications;
+            return this.report.getModificationsReport();
         },
-
-        modificationsExecuterString() {
-            switch (this.report.modifications.executer) {
-                case 0:
-                    return "Huurder";
-                case 1:
-                    return "Aannemer";
-                case 2:
-                    return "Onbekend";
-
-                default:
-                    return "";
-            }
-        },
-
-        modificationsActionString() {
-            switch (this.report.modifications.action) {
-                case 0:
-                    return "Accepteren";
-                case 1:
-                    return "Laten keuren";
-                case 2:
-                    return "Laten verwijderen";
-                case 3:
-                    return "Laten aanpassen";
-                case 4:
-                    return "Keuren";
-                default:
-                    return "";
-            }
-
-        }
     }
 }
 

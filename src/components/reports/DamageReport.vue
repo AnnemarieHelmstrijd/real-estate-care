@@ -1,5 +1,5 @@
 <template>
-    <h3>Damage</h3>
+    <h5>Damage</h5>
     <v-table height="300px" density="compact">
         <thead>
             <tr>
