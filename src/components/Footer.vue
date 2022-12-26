@@ -1,10 +1,12 @@
 <template>
   <v-bottom-navigation id="bottom_navigation" :elevation="0" height="100" grow>
-    <v-btn value="active-task">
-      <v-icon id="bottom_icon" size="30">mdi-wrench</v-icon>
+    <router-link style="text-decoration: none; color: inherit; " to="ActiveTask">
+      <v-btn value="active-task">
+        <v-icon id="bottom_icon" size="30">mdi-wrench</v-icon>
 
-      <h2>Active Task</h2>
-    </v-btn>
+        <h2>Active Task</h2>
+      </v-btn>
+    </router-link>
 
     <v-spacer></v-spacer>
 

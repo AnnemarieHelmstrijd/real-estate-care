@@ -1,5 +1,9 @@
 <template>
-    <div>
+        <router-link to="/">
+            <v-btn>
+                Home
+            </v-btn>
+        </router-link>
         <h2>Completed Reports</h2>
         <v-expansion-panels>
             <v-expansion-panel v-for="item in items" :key="item.getLocation()">
@@ -21,7 +25,6 @@
                 </v-expansion-panel-text>
             </v-expansion-panel>
         </v-expansion-panels>
-    </div>
     <FooterComponent></FooterComponent>
 </template>
 
@@ -43,3 +46,10 @@ export default {
 }
 </script>
 
+<style scoped>
+
+.h2{
+    text-align: left;
+}
+
+</style>

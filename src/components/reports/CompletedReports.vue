@@ -48,14 +48,6 @@ export default {
         loadingStatus() {
             return this.$store.state.loadingStatus;
         },
-    },
-    data() {
-        return {
-            scheduledWork: [],
-        }
-    },
-    mounted: function () {
-        this.$store.dispatch("fetchReports");
     }
 }
 </script>

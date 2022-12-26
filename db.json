@@ -62,5 +62,14 @@
             }
         }
     ],
-    "scheduledReports": []
+    "scheduledReports": [
+        {
+            "location": "Albert Hein",
+            "date": "2023-02-02"
+        },
+        {
+            "location": "Ziggo Dome",
+            "date": "2023-03-03"
+        }
+    ]
 }

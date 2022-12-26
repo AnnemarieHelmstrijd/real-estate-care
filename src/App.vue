@@ -4,42 +4,16 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&family=Montserrat:wght@200;400&family=Roboto&family=Roboto+Flex:opsz,wght@8..144,200;8..144,400&display=swap"
     rel="stylesheet">
-  <component :is="currentView"></component>
+  <router-view></router-view>
 </template>
 
 <script>
-import CompletedReportComponent from './components/reports/CompletedReport.vue';
-import CompletedReportsComponent from './components/reports/CompletedReports.vue';
-import WelcomeScreen from './components/WelcomeScreen.vue';
-
-const routes = {
-  '/': WelcomeScreen,
-  '/Completed': CompletedReportsComponent,
-  '/CompletedReport': CompletedReportComponent
-}
 
 export default {
   name: 'App',
-  theme: 'myCustomLightTheme',
-
-  data() {
-    return {
-      currentPath: window.location.hash,
+    mounted: function () {
+        this.$store.dispatch("fetchReports");
     }
-  },
-
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/']
-    }
-  },
-
-  mounted: function () {
-    let foo = this;
-    window.addEventListener('hashchange', function () {
-      foo.currentPath = window.location.hash
-    })
-  }
 }
 </script>
 

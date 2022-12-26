@@ -2,21 +2,21 @@
     <v-container class="menu-container">
         <v-row class="card_row">
             <v-col>
-                <MenuCard icon="mdi-bookmark" action="Scheduled" link="Scheduled"></MenuCard>
+                <MenuCard icon="mdi-bookmark" action="Scheduled" link="ScheduledReports"></MenuCard>
             </v-col>
             <v-col>
-                <MenuCard icon="mdi-checkbox-marked-circle" action="Completed" link="Completed"></MenuCard>
+                <MenuCard icon="mdi-checkbox-marked-circle" action="Completed" link="CompletedReports"></MenuCard>
             </v-col>
         </v-row>
 
         <v-row class="card_row">
 
             <v-col>
-                <MenuCard icon="mdi-view-grid" action="Knowledge Base"></MenuCard>
+                <MenuCard icon="mdi-view-grid" action="Knowledge Base" link="CompletedReports"></MenuCard>
             </v-col>
 
             <v-col>
-                <MenuCard icon="mdi-cog" action="Settings"></MenuCard>
+                <MenuCard icon="mdi-cog" action="Settings" link="CompletedReports"></MenuCard>
             </v-col>
         </v-row>
     </v-container>
@@ -42,4 +42,5 @@ export default {
 .menu-container {
     height: 100%;
 }
+
 </style>

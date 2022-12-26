@@ -199,6 +199,8 @@ class CompletedReport {
     if (json["installation"])
       this.installationReport = new InstallationReport(json["installation"]);
     else this.installationReport = null;
+
+    this.activeTask = null;
   }
 
   getDate() {
@@ -244,11 +246,15 @@ export default class DataModel {
     return this.completedReports;
   }
 
-  // set completedReports(completedReports) {
-  //   this.completedReports = completedReports;
-  // }
+  getScheduledReports(){
+    return this.scheduledReports;
+  }
 
-  // get completedReports() {
-  //   return this.completedReports;
-  // }
+  setActiveTask(task){
+    this.activeTask = task;
+  }
+
+  getActiveTask(){
+    return this.activeTask;
+  }
 }

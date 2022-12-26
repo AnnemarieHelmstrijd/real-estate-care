@@ -1,10 +1,12 @@
 <template>
-    <v-card class="menu-card" variant="tonal" elevation="5" href="#/Completed">
-        <v-icon size="250">{{ icon }}</v-icon>
-        <v-card-actions id="card_action">
-            <h1>{{ action }}</h1>
-        </v-card-actions>
-    </v-card>
+    <router-link :to="link" style="text-decoration: none; color: inherit;">
+        <v-card class="menu-card" variant="tonal" elevation="5">
+            <v-icon size="150">{{ icon }}</v-icon>
+            <v-card-actions id="card_action">
+                <h2>{{ action }}</h2>
+            </v-card-actions>
+        </v-card>
+    </router-link>
 </template>
 
 <script>
@@ -20,9 +22,15 @@ export default {
 
 <style scoped>
 .menu-card {
-    height: 100%;
+    height: 90%;
     color: #333333;
     font-size: 20px;
+    margin: 10px;
+}
+
+.router-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 #card_action {
