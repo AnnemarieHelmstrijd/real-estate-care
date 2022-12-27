@@ -55,8 +55,8 @@ export default createStore({
       state.loadingErrors = [...state.loadingErrors, errors];
     },
 
-    CREATE_ACTIVE_TASK(state, task){
-      state.model.setActiveTask(task)
+    CREATE_ACTIVE_TASK(state, location, date){
+      state.model.setActiveTask(location, date)
     }
   },
 

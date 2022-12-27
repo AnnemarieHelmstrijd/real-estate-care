@@ -1,5 +1,7 @@
 <template>
-    <h1 v-if="data"> Active task</h1>
+    <div v-if="data">
+         Active task
+        </div>
     <h1 v-else> No active task. Go to scheduled <router-link to="ScheduledReports">Scheduled Reports</router-link> to start a task</h1>
 </template>
 

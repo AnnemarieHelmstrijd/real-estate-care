@@ -250,8 +250,13 @@ export default class DataModel {
     return this.scheduledReports;
   }
 
-  setActiveTask(task){
-    this.activeTask = task;
+  setActiveTask(location, date){
+    const json = {
+      location: location,
+      date: date,
+    };
+
+    this.activeTask = new CompletedReport(json);
   }
 
   getActiveTask(){
