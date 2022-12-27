@@ -3,6 +3,10 @@ class DamageReport {
     this.json = json;
   }
 
+  set actionRequired(required){
+    this.json.actionRequired = required
+  }
+
   get actionRequired() {
     return this.json["actionRequired"] ? "Yes" : "No";
   }
