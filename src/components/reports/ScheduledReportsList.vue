@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         startNewReport(location, date) {
-            this.$store.state.model.setActiveTask(location, date);
+            this.$store.dispatch("createActiveTask", location, date);
         },
         deleteReport() { }
     }

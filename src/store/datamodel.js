@@ -1,3 +1,5 @@
+'use strict';
+
 class DamageReport {
   constructor(json) {
     this.json = json;
@@ -215,6 +217,11 @@ class CompletedReport {
     return this.location
   }
 
+  setDamageReport(report){
+    console.log(report)
+    this.damageReport = report;
+  }
+
   getDamageReport() {
     return this.damageReport;
   }
@@ -236,7 +243,7 @@ function buildReports(reportJson) {
   return new CompletedReport(reportJson);
 }
 
-export default class DataModel {
+class DataModel {
   constructor(database = null) {
     if (database) {
       this.completedReports = database["completedReports"].map(buildReports).sort((a, b) => {
@@ -261,9 +268,19 @@ export default class DataModel {
     };
 
     this.activeTask = new CompletedReport(json);
+    console.log(this.activeTask);
   }
 
   getActiveTask(){
     return this.activeTask;
   }
+}
+
+export {
+  DamageReport,
+  MaintenanceReport,
+  InstallationReport,
+  ModificationsReport,
+  DataModel,
+  CompletedReport,
 }

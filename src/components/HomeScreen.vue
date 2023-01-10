@@ -19,7 +19,7 @@ import MenuGrid from './MenuGrid.vue';
 import FooterComponent from './Footer.vue';
 
 export default {
-    name: 'WelcomeScreen',
+    name: 'HomeScreen',
     components: {
         HeaderComponent,
         MenuGrid,

@@ -1,15 +1,19 @@
+'use strict';
+
 import { createRouter, createWebHistory } from "vue-router";
 
-import WelcomeScreen from '../components/WelcomeScreen'
+import HomeScreen from '../components/HomeScreen'
 import CompletedReportsComponent from '../components/reports/CompletedReports'
 import ScheduledReportsComponent from '../components/reports/ScheduledReportsList'
 import ActiveTaskComponent from '../components/ActiveTask'
+
+const knowlege = { template: '<div></div>'}
 
 const routes = [
     {
         path: '/',
         name: 'Home',
-        component: WelcomeScreen,
+        component: HomeScreen,
     },
     {
         path: '/CompletedReports',
@@ -20,6 +24,11 @@ const routes = [
         path: '/ScheduledReports',
         name: 'Scheduled reports',
         component: ScheduledReportsComponent,
+    },
+    {
+        path: '/KnowledgeBase',
+        beforeEnter() {location.href = 'https://www.remdal.com/blog/4-common-types-building-repair-maintenance-services/'},
+        component: knowlege,
     },
     {
         path: '/ActiveTask',

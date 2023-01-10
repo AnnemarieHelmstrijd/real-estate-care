@@ -1,5 +1,4 @@
 <template>
-    <h5>Damage</h5>
     <v-table density="compact">
         <thead>
             <tr>
@@ -39,7 +38,14 @@
             <tr>
                 <td class="text-left">New Damage: </td>
                 <td class="text-left">
-                    <v-checkbox></v-checkbox>
+                    <v-checkbox v-model="isNewDamage"></v-checkbox>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-left">Photo: </td>
+                <td class="text-left">
+                    <v-file-input prepend-icon="mdi-camera"></v-file-input>
                 </td>
             </tr>
         </tbody>
@@ -47,10 +53,26 @@
 </template>
 
 <script>
+
 export default {
     name: "MutableDamageReportComponent",
-    data: () => ({
-        damageTypeItems: ['Moedwillig', 'Slijtage', 'Geweld', 'Normaal gebruik', 'Calamiteit', 'Anders']
-    })
+    data() {
+        return {
+            damageTypeItems: ['Moedwillig', 'Slijtage', 'Geweld', 'Normaal gebruik', 'Calamiteit', 'Anders'],
+            isNewDamage: false,
+        }
+    },
+    props:{
+        report: Object
+    },
+    beforeUnmount: function(){
+        var newReport = this.report;
+        if(!newReport){
+            newReport = {};
+        }
+
+        newReport.newDamage = this.isNewDamage;
+        this.$store.dispatch("setActiveTaskDamageReport", newReport)
+    }
 }
 </script>

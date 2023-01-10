@@ -12,7 +12,7 @@
         <v-row class="card_row">
 
             <v-col>
-                <MenuCard icon="mdi-view-grid" action="Knowledge Base" link="CompletedReports"></MenuCard>
+                <MenuCard icon="mdi-view-grid" action="Knowledge Base" link="KnowledgeBase"></MenuCard>
             </v-col>
 
             <v-col>

@@ -24,7 +24,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="text-left">Approved: </td>
+                <td class="text-left">Action Required: </td>
                 <td class="text-left">
                     <v-checkbox></v-checkbox>
                 </td>
@@ -36,11 +36,9 @@
                 </td>
             </tr>
             <tr>
-                <td class="text-left">Test report: </td>
+                <td class="text-left">New Damage: </td>
                 <td class="text-left">
-                    <v-btn icon href='https://www.youtube.com/watch?v=xm3YgoEiEDc'>
-                        <v-icon id="bottom_icon" size="15">mdi-book-open</v-icon>
-                    </v-btn>
+                    <v-checkbox></v-checkbox>
                 </td>
             </tr>
             <tr>
@@ -55,7 +53,7 @@
 
 <script>
 export default {
-    name: "MutableInstallationReportComponent",
+    name: "MutableModificationsReportComponent",
     data: () => ({
         installationTypeItems: ['Koeling', 'Verwarming', 'Luchtverversing', 'Electra', 'Beveiliging']
     })

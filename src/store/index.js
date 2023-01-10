@@ -1,6 +1,8 @@
+'use strict';
+
 import { createStore } from "vuex";
 import axios from "axios";
-import DataModel from "./datamodel";
+import {DataModel, DamageReport} from "./datamodel";
 
 const url =
   "https://my-json-server.typicode.com/AnnemarieHelmstrijd/real-estate-care/db";
@@ -36,6 +38,16 @@ export default createStore({
           context.commit("SET_LOADING_ERRORS", error);
         });
     },
+
+    setActiveTaskDamageReport(context, report){
+      console.log(report);
+      let damage = new DamageReport(report);
+      context.commit("SET_ACTIVE_TASK_DAMAGE_REPORT", damage);
+    },
+
+    createActiveTask(context, location, date){
+      context.commit("CREATE_ACTIVE_TASK", location, date)
+    }
   },
 
   mutations: {
@@ -57,6 +69,10 @@ export default createStore({
 
     CREATE_ACTIVE_TASK(state, location, date){
       state.model.setActiveTask(location, date)
+    },
+
+    SET_ACTIVE_TASK_DAMAGE_REPORT(state, report){
+      state.model.getActiveTask().setDamageReport(report);
     }
   },
 
