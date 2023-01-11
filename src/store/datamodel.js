@@ -1,12 +1,28 @@
-'use strict';
+"use strict";
 
 class DamageReport {
   constructor(json) {
-    this.json = json;
+    if (json) {
+      this.newDamage = json["newDamage"];
+      this.actionRequired = json["actionRequired"];
+      this.type = json["type"];
+      this.location = json["location"];
+      this.description = json["description"];
+    } else {
+      let object = {
+        actionRequired: false,
+        location: "",
+        type: 0,
+        description: "",
+        newDamage: false,
+      };
+
+      this.json = object;
+    }
   }
 
-  set actionRequired(required){
-    this.json.actionRequired = required
+  set actionRequired(required) {
+    this.actionRequired = required;
   }
 
   get actionRequired() {
@@ -166,7 +182,6 @@ class InstallationReport {
 
       default:
         return "";
-
     }
   }
 
@@ -187,7 +202,7 @@ class InstallationReport {
   }
 }
 
-class CompletedReport {
+class Report {
   constructor(json) {
     this.location = json["location"];
     this.date = json["date"];
@@ -214,11 +229,11 @@ class CompletedReport {
   }
 
   getLocation() {
-    return this.location
+    return this.location;
   }
 
-  setDamageReport(report){
-    console.log(report)
+  setDamageReport(report) {
+    console.log(report);
     this.damageReport = report;
   }
 
@@ -234,21 +249,23 @@ class CompletedReport {
     return this.installationReport;
   }
 
-  getModificationsReport(){
+  getModificationsReport() {
     return this.modificationsReport;
   }
 }
 
 function buildReports(reportJson) {
-  return new CompletedReport(reportJson);
+  return new Report(reportJson);
 }
 
 class DataModel {
   constructor(database = null) {
     if (database) {
-      this.completedReports = database["completedReports"].map(buildReports).sort((a, b) => {
-        return new Date(a.getDate()) - new Date(b.getDate());
-      });
+      this.completedReports = database["completedReports"]
+        .map(buildReports)
+        .sort((a, b) => {
+          return new Date(a.getDate()) - new Date(b.getDate());
+        });
       this.scheduledReports = database["scheduledReports"].map(buildReports);
     }
   }
@@ -257,21 +274,21 @@ class DataModel {
     return this.completedReports;
   }
 
-  getScheduledReports(){
+  getScheduledReports() {
     return this.scheduledReports;
   }
 
-  setActiveTask(location, date){
+  setActiveTask(location, date) {
     const json = {
       location: location,
       date: date,
     };
 
-    this.activeTask = new CompletedReport(json);
+    this.activeTask = new Report(json);
     console.log(this.activeTask);
   }
 
-  getActiveTask(){
+  getActiveTask() {
     return this.activeTask;
   }
 }
@@ -282,5 +299,5 @@ export {
   InstallationReport,
   ModificationsReport,
   DataModel,
-  CompletedReport,
-}
+  Report,
+};

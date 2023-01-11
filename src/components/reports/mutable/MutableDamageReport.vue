@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-left">Location: </td>
+                <td class="text-left">Location: {{ this.object.location }}</td>
                 <td class="text-left">
                     <v-text-field label="Location"></v-text-field>
                 </td>
@@ -60,14 +60,16 @@ export default {
         return {
             damageTypeItems: ['Moedwillig', 'Slijtage', 'Geweld', 'Normaal gebruik', 'Calamiteit', 'Anders'],
             isNewDamage: false,
+            location: "",
+            description: "",
         }
     },
-    props:{
+    props: {
         report: Object
     },
-    beforeUnmount: function(){
+    beforeUnmount: function () {
         var newReport = this.report;
-        if(!newReport){
+        if (!newReport) {
             newReport = {};
         }
 

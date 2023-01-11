@@ -31,6 +31,12 @@
                 <td class="text-left">Costs: </td>
                 <td class="text-left">{{ report.cost }}</td>
             </tr>
+            <tr>
+                <td class="text-left">Photo: </td>
+                <td class="text-left">
+                    <v-icon>mdi-camera</v-icon>
+                </td>
+            </tr>
         </tbody>
     </v-table>
 </template>

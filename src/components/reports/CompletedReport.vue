@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import CompletedReport from '../../store/datamodel'
+import Report from '../../store/datamodel'
 import DamageReportComponent from './DamageReport.vue';
 import InstallationReportComponent from './InstallationReport.vue';
 import MaintenanceReportComponent from './MaintenanceReport.vue';
@@ -29,7 +29,7 @@ export default {
         ModificationsReportComponent,
     },
     props: {
-        report: CompletedReport,
+        report: Report,
     },
     computed: {
         damageReport() {
